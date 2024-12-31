@@ -18,5 +18,5 @@ class Handler:
         #
         # Тест проверяет, что время исполнения одной корутины handle_request не слишком сильно
         # отличается от времени исполнения нескольких таких корутин, запущенных конкурентно.
-        #
-        # YOU CODE GOES HERE
+        loop = asyncio.get_running_loop()
+        await loop.run_in_executor(None, self._model.compute)
